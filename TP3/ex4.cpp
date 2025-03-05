@@ -6,21 +6,66 @@
 
 using namespace std;
 
+/*This method implements the Dijkstra algorithm to find the shortest paths from s (vertex
+ *which contains element origin) to all other vertices, in a given weighted graph (see
+ *theoretical class slides). Update the Vertex class with member variables int dist and
+ *Vertex<T>* path, representing the distance to the start vertex and the previous vertex in
+ *the shortest path, respectively. Since the STL doesn’t support mutable priority queues,
+ *you can use the class provided MutablePriorityQueue.
+ */
+
 template <class T>
 bool relax(Edge<T> *edge) { // d[u] + w(u,v) < d[v]
     // TODO
+    // Check if the distance is better (smaller) and update it
+    // Adjacent edges to u
+    // for (int v = 0; v < N; v++) { //N: size of G
+    //     if (G[u][v]) // Como está implementado o grafo?!! >>>> class!! methods and attributes
+    // }
+
+    if (edge->getOrig()->getDist() + edge->getWeight() < edge->getDest()->getDist()) {
+        edge->getDest()->setDist(edge->getOrig()->getDist() + edge->getWeight());
+        edge->getDest()->setPath(edge);
+        return true;
+    }
     return false;
 }
 
 template <class T>
 void dijkstra(Graph<T> * g, const int &origin) {
     // TODO
+    // Input: graph, origin
+
+    // Initialization
+    for (auto v : g -> getVertexSet()) {
+        v->setDist(INF);
+        v->setPath(nullptr);
+    }
+    auto s = g->findVertex(origin);
+    s->setDist(0);
+    MutablePriorityQueue<Vertex<T>> *q; // Provided class
+    q->insert(s);
+
+    while (!q->empty()) { // (.) giving error
+        Vertex<T> *v = q->extractMin();
+        for (auto e : v->getAdj()) {
+            int oldDist = e->getDest()->getDist(); // int? edge?
+            if (relax(e)) { // true/false
+                if (oldDist == INF) q->insert(e->getDest());
+                else q->decreaseKey(e->getDest()); // dest??
+            }
+        }
+    }
+    return;
+    // Output: none; cada vértice com uma dist min path atualizada
 }
 
 template <class T>
 static std::vector<T> getPath(Graph<T> * g, const int &origin, const int &dest) {
     std::vector<T> res;
     // TODO
+
+
     return res;
 }
 
