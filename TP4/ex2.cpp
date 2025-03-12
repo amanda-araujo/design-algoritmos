@@ -3,16 +3,20 @@
 #include "exercises.h"
 
 std::string hanoiDC(unsigned int n, char src, char dest) {
-    // Input: # disks, source, destination
     // TODO: Implement function
+    // Input: # disks, source, destination
     // src, dest, temp
 
     // Base case
     if (n == 1) return std::string(1,src) + "->" + std::string(1,dest);
 
-    char temp = 'C';
-    return hanoiDC(n - 1, src, temp) + "," + hanoiDC(1, src, dest) + "," + hanoiDC(n - 1, temp, dest);
+    char temp;
+    if ((src == 'A' and dest == 'B') or (src == 'B' and dest == 'A')) temp = 'C';
+    else if ((src == 'A' and dest == 'C') or (src == 'C' and dest == 'A')) temp = 'B';
+    else temp = 'A';
 
+    return hanoiDC(n - 1, src, temp) + "," + hanoiDC(1, src, dest) + "," + hanoiDC(n - 1, temp, dest);
+    }
 }
 
 /// TESTS ///
