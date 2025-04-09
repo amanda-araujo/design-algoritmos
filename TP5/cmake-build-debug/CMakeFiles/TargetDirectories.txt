@@ -1,0 +1,5 @@
+/home/up202411286/CLionProjects/TP5/cmake-build-debug/CMakeFiles/TP5.dir
+/home/up202411286/CLionProjects/TP5/cmake-build-debug/CMakeFiles/exercise1.dir
+/home/up202411286/CLionProjects/TP5/cmake-build-debug/CMakeFiles/exercise2_knapsack01.dir
+/home/up202411286/CLionProjects/TP5/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/up202411286/CLionProjects/TP5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
