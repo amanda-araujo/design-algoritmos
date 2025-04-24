@@ -18,6 +18,8 @@ add_executable(da2425_p02_student
         TP2/ex3.cpp
         TP2/ex4.cpp
         TP2/ex5.cpp
+        knapsack_backtracking.cpp
 )
 
 target_link_libraries(da2425_p02_student gtest gtest_main)
+add_executable(knapsack_backtracking knapsack_backtracking.cpp)

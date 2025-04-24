@@ -30,7 +30,7 @@ bool changeMakingDP(unsigned int C[], unsigned int Stock[], unsigned int n, unsi
         }
     }
 
-    // Fisrt Coin
+    // First Coin
     for (int s = 1; s <= Stock[0]; s++) {
         for (int t = C[0]; t <= T; t++) {
             if (t % C[0] == 0 and t / C[0] <= s) {
